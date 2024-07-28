@@ -4,11 +4,27 @@
 
 IP Address & Port Numbers
 
+IP1 -->
+54.225.26.215
+
+IP2 -->
+18.234.138.186
+
+
+Oracle Database -- 1521
+MySQL Database -- 3306
+PostgreSQL     -- 5432
 --------------------------------------------------------------
 Creating EC2 Server and getting run and up IP address:
-
+31*24=744hours/monthly
 --------------------------------------------------------------
 Why we should USE OUR OWN IP for DB classes?
+
+CRUD
+Create
+REad
+Update
+Delete
 
 --------------------------------------------------------------
 If you CAN NOT create you can use one of these IPs:
@@ -31,27 +47,84 @@ What is difference between SQL and MYSQL ?
 
 */
 
+    SELECT * FROM EMPLOYEES;
+
+    SELECT FIRST_NAME, LAST_NAME FROM EMPLOYEES;
+
+    sElEct * fRom eMployees;
+
+    SELECT JOB_TITLE FROM JOBS;
+
 --TASK 1 - Display department names  from departments table
+
+    SELECT DEPARTMENT_NAME FROM DEPARTMENTS;
 
 --TASK 2 - Display first_name, last_name, department_id, salary from employees
 
+    SELECT FIRST_NAME, LAST_NAME, DEPARTMENT_ID,SALARY FROM EMPLOYEES;
+
 --TASK 3 - Display first_name, last_name, department_id, salary from employees whose salary is higher than 9000
+
+    SELECT FIRST_NAME,LAST_NAME,DEPARTMENT_ID,SALARY
+    FROM EMPLOYEES
+    WHERE SALARY>9000;
 
 --TASK 4 - Display first_name, last_name, department_id, salary from employees whose salary equals or more than 9000 and salary equals or less than 15000 sort result based on salary asc
 
+SELECT FIRST_NAME,LAST_NAME,DEPARTMENT_ID,SALARY
+FROM EMPLOYEES
+WHERE SALARY >=9000 AND SALARY<=15000
+ORDER BY SALARY ;
+
+SELECT FIRST_NAME,LAST_NAME,EMAIL,DEPARTMENT_ID,SALARY
+FROM EMPLOYEES
+WHERE SALARY BETWEEN 9000 AND 15000
+ORDER BY SALARY ;
+
 --TASK 5 - Display first_name, last_name, department_id, salary from employees whose firstname is Peter and salary is bigger than 5000 sort result based on salary desc
 
--- TASK 6 - Display country_id, country_name from countries table for region id 2 or 4 sort result based on region_id desc and country_name asc
+SELECT FIRST_NAME,LAST_NAME,EMAIL,DEPARTMENT_ID,SALARY
+FROM EMPLOYEES
+WHERE FIRST_NAME='Peter'AND SALARY>5000
+ORDER BY SALARY DESC ;
 
---TASK 7 - Display employee firstname and lastname as fullname , salary as annual salary  , job_id from employees in descending order
+-- TASK 6 - Display country_id, country_name region_id from countries table for region id 2 or 4 sort result based on region_id desc and country_name asc
 
--- TASK 8 - Display country id and country name where country name ends with a
+    SELECT COUNTRY_ID,COUNTRY_NAME, REGION_ID
+    FROM COUNTRIES
+    WHERE REGION_ID=2 OR REGION_ID=4
+    ORDER BY REGION_ID DESC , COUNTRY_NAME;
+
+--TASK 7 - Display employee firstname and lastname as fullname , salary as annual salary  , job_id from employees in  annual salary descending order
+
+-- JAVA Concat --> +    --> "cydeo" + " " +"company"   -->
+-- SQL  Concat --> ||   --> FIRST_NAME || ' ' || LAST_NAME
+
+    SELECT FIRST_NAME || ' ' || LAST_NAME AS FULL_NAME, SALARY*12 AS ANNUAL_SALARY, JOB_ID
+    FROM EMPLOYEES
+    ORDER BY ANNUAL_SALARY DESC ;
+
+-- TASK 8 - Display country id and country name from countries table where country name ends with a
+
+    SELECT COUNTRY_ID, COUNTRY_NAME
+    FROM COUNTRIES
+    WHERE COUNTRY_NAME LIKE '%a';
 
 -- TASK 9 - Display country id and country name where country name ends with a and third letter is i
 
+    SELECT COUNTRY_ID, COUNTRY_NAME
+    FROM COUNTRIES
+    WHERE COUNTRY_NAME LIKE '__i%a';
+
 -- IQ 1 - Get me employees where employee ids are even number
 
+    SELECT * FROM EMPLOYEES
+    WHERE MOD(EMPLOYEE_ID,2)=1;
+
 -- IQ 2 --> Write a query to print first_name and salary for all employees in the Employee table who earn a salary larger than 3000. Sort your results in ascending order of the last 3 characters in the employees first_name if two or more employees have first_names ending with same 3 characters, then sort them by highest salary in desc
+
+    SELECT  FIRST_NAME, SALARY
+    FROM EMPLOYEES
 
 -- TASK 10- 1 - How many city we have in each country from locations table
 
