@@ -1,148 +1,109 @@
 /*
 
-SQL/ -> 1 WEEK
-
-JDBC  -> 1 WEEK
-
+-----------------------SQL Live Class------------------------------
 
 IP Address & Port Numbers
-    Server Information:
-    We will use EC2 instance  from AWS that you already created it with Cydeo AMI
 
-    Port Numbers:
-    1. Oracle (HR) DB           → 1521   →SQL & JDBC Classes
-    2. MySQL (Library2) DB      → 3306   →SQL & JDBC Classes
-    3. PostgreSQL (Bookit) DB   →5432    →SQL & JDBC Classes
-
+--------------------------------------------------------------
 Creating EC2 Server and getting run and up IP address:
-    AWS FREE TIER -> 750 hours / t2.micro
 
-    750 hours --> Free Usage --> t2.micro --> ONLY ONE SERVER
-    24 * 31 --> 744 hours
-    Mail --> Around end of month --> %85 percentage of usage on August 20th
-    25*24 --> 600  -->  600 / 750 --> > 85 --> send you an information mail
-
-    t2.micro -->   - 1 GB RAM
-                   - 1 CPU
-                   - 30 GB STORAGE
-
-MFA -> Multi-Factor Authentication
-
-AMI -> Amazon Machine Image
-       Cydeo -> Cydeo_LatestImage_2025 (Template of Server)
-
-
+--------------------------------------------------------------
 Why we should USE OUR OWN IP for DB classes?
-    CRUD OPERATIONS
-    C - CREATE
-    R - READ
-    U - UPDATE
-    D - DELETE
 
-
+--------------------------------------------------------------
 If you CAN NOT create you can use one of these IPs:
     IP1 --> 54.225.26.215
     IP2 --> 18.234.138.186
 
+--------------------------------------------------------------
+TOOLS FOR DATABASE TESTING
+    MANUAL
+    AUTOMATION
 
---------------- SELECT ,WHERE, LIKE -------------------
+--------------------------------------------------------------
+DATABASE FLOW
+    1. FRONTEND (UI)
 
---TASK 1 - display department names  from departments table
+    2. BACKEND (DATABASE)
 
---TASK 2 - display first_name, last_name, department_id, salary from employees
+--------------------------------------------------------------
+What is difference between SQL and MYSQL ?
 
---TASK 3 - display first_name, last_name, department_id, salary from employees whose salary is higher than 9000
+*/
 
---TASK 4 - display first_name, last_name, department_id, salary from employees
---         whose salary equals or more than 9000 and salary equals or less than 15000
---         sort result based on salary asc
+--TASK 1 - Display department names  from departments table
 
---TASK 5 -  display first_name, last_name, department_id, salary from employees
---          whose firstname is Peter and salary is bigger than 5000
---          sort result based on salary desc
+--TASK 2 - Display first_name, last_name, department_id, salary from employees
 
---TASK 6 - display country_id, country_name from countries table for region id 2 or 4
---         sort result based on region_id desc and country_name asc
+--TASK 3 - Display first_name, last_name, department_id, salary from employees whose salary is higher than 9000
 
---TASK 7 -  display employee firstname and lastname as fullname , salary as annual salary  , job_id
+--TASK 4 - Display first_name, last_name, department_id, salary from employees whose salary equals or more than 9000 and salary equals or less than 15000 sort result based on salary asc
 
--- whose job ID starts with S
+--TASK 5 - Display first_name, last_name, department_id, salary from employees whose firstname is Peter and salary is bigger than 5000 sort result based on salary desc
 
--- whose job ID starts with S AND TOTAL 6 LETTER
+-- TASK 6 - Display country_id, country_name from countries table for region id 2 or 4 sort result based on region_id desc and country_name asc
 
--- TASK 8 - display country id and country name where country name ends with a
+--TASK 7 - Display employee firstname and lastname as fullname , salary as annual salary  , job_id from employees in descending order
 
--- TASK 9 -  display country id and country name where country name ends with a and third letter is i
+-- TASK 8 - Display country id and country name where country name ends with a
 
--- IQ --> GET ME EMPLOYEES WHERE EMPLOYEE IDs are EVEN NUMBER
+-- TASK 9 - Display country id and country name where country name ends with a and third letter is i
 
+-- IQ 1 - Get me employees where employee ids are even number
 
---------------- GROUP BY, HAVING  -------------------
+-- IQ 2 --> Write a query to print first_name and salary for all employees in the Employee table who earn a salary larger than 3000. Sort your results in ascending order of the last 3 characters in the employees first_name if two or more employees have first_names ending with same 3 characters, then sort them by highest salary in desc
 
--- TASK 10- 1 -  how many city we have in EACH country from locations table
+-- TASK 10- 1 - How many city we have in each country from locations table
 
 -- TASK 10- 2  - order them based on city count in desc
 
--- TASK 10- 3 -  filter result where country id starts with C
+-- TASK 10- 3 - Filter result where country id starts with C
 
--- TASK 10- 4 -  display country id if city count is bigger than 1
+-- TASK 10- 4 -  Display country id if city count is bigger than 1
 
+-- TASK 10- 5 - Display country id that starts with C
 
 -- TASK 11 -1  How many employees is working for EACH department
 
--- TASK 11 -2  ignore null departments
+-- TASK 11 -2 Max_salary / min_salary / total_expense / avg for each department
 
--- TASK 11 -3  display department id where employees count is less than 5
+-- TASK 11 -3 Ignore null departments
 
+-- TASK 11 -4 Display department id where employees count is less than 5
 
-------- SUBQUERY -------
+-- TASK 12 - Display those employees firstname,lastname and salary who get higher salary than the employee whose employee_id is 104
 
--- TASK 12 - Display those employees firstname,lastname and salary
---           who get higher salary than the employee whose employee_id is 104
+-- TASK 13 -1  Display Manager firstname,lastname of Peter,Vargas from employees table
 
--- TASK 13 -  Display Manager firstname,lastname of Peter,Vargas from employees table
+-- TASK 13 -1 Display Manager firstname,lastname for where employee name Peter
 
--- TASK 14 -  display all information who is getting 11th highest salary
+-- TASK 14 - Display all information who is getting 11th highest salary
 
+-- TASK 15 - Display all first_name and  related department_name
 
---- DDL / DML ---
+-- TASK 16 -1 Display all first_name, last name and department_name including the  employee without
 
--- DQL --> DATA QUERY LANGUAGE  --> SELECT
--- DML --> DATA MANIPULATION LANGUAGE
--- DDL --> DATA DEFINITION LANGUAGE
+-- TASK 16 -2 Display all first_name and department_name including the  department without employee
 
+-- TASK 16 -3 Display all first_name and department_name including the department without employee
 
+-- TASK 16 -4 Display all first_name and department_name including the  employee without department
 
+-- TASK 16 -5 Display all firstname and department name including the department without employees and also employees without the department
 
------ JOINS ----
+-- TASK 17 -1 How many employees working for each department (use department name)
 
--- INNER JOIN RETURN ONLY THE DATA THAT MATCH FROM BOTH TABLE ACCORDING TO CONDITION
--- Display all first_name and  related department_name
+-- TASK 17 -2 Display if the employee count is bigger than 10
 
+-- TASK 18 - Display all employees with their manager first_name and last_names
 
--- LEFT OUTER JOIN RETURN EVERYTHING THAT MATCH + UNIQUE FOR LEFT
--- Display all first_name and department_name including the  employee without department
+-- TASK 19 - Display all EMPLOYEES who is manager
 
+-- TASK 20 - Display all EMPLOYEES who is not manager
+--First find all manager IDs
 
+-- IQ3 - Given the Employee table, write a SQL query that finds out employees who earn more than their managers.
 
--- RIGHT OUTER JOIN RETURN EVERYTHING THAT MATCH + UNIQUE FOR RIGHT
--- Display all first_name and department_name including the department without employee
+-- IQ4 - Given the Employee table, write a SQL query that finds out amount of 3th highest salary
 
-
--- FULL OUTER JOIN RETURNS EVERYTHING
--- Display all firstname and department name including the department without employees
--- and also employees without the department
-
-
--- How many employees working for each department (use department name)
-
--- Display if the employee count is bigger than 10
-
-
------ SELF JOIN ---
--- Display all employees with their manager first_name and last_names
-
-
--- Interview Question
--- Given the Employee table,
--- write a SQL query that finds out employees who earn more than their managers.
+-- IQ5 - Given the Employee table and Job table, write a SQL query that finds out the difference between maximum salary of the job title and salary of the employees. Return job_id, first_name, maximum salary of the job title, salary of the employee and salary difference.
