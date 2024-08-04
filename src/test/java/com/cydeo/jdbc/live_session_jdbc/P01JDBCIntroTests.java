@@ -18,7 +18,7 @@ public class P01JDBCIntroTests {
 
         Connection conn = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
         Statement stmnt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        ResultSet rs = stmnt.executeQuery("SELECT COUNTRY_ID,COUNTRY_NAME, REGION_ID FROM COUNTRIES");
+        ResultSet rs = stmnt.executeQuery("SELECT COUNTRY_ID,COUNTRY_NAME FROM COUNTRIES");
 
 
         System.out.println("-----------First Row----------");
@@ -73,10 +73,33 @@ public class P01JDBCIntroTests {
         String firstColumn = rsmd.getColumnName(1);
         System.out.println("firstColumn = " + firstColumn);
 
-        System.out.println("----- GET ME SECONd COLUMN NAME   ----");
+        System.out.println("----- GET ME SECOND COLUMN NAME   ----");
         String secondColumn = rsmd.getColumnName(2);
         System.out.println("secondColumn = " + secondColumn);
 
+        System.out.println("----- GET ME ALL COLUMN NAMES    ----");
+        for (int i=1; i<= columnCount; i++){
+            System.out.println(rsmd.getColumnName(i));
+        }
 
-    }
+        System.out.println("-----GET ME ALL DATA WITH COLUMN NAMES DYNAMICALLY----");
+        // COUNTRY_ID - AR COUNTRY_NAME - ARGENTINA
+        // COUNTRY_ID - AU COUNTRY_NAME - AUSTRALIA
+        // COUNTRY_ID - BE COUNTRY_NAME - BELGIUM
+        // COUNTRY_ID - BR COUNTRY_NAME - BRAZIL
+        // ....
+        // ...
+
+        rs.beforeFirst();
+        while (rs.next()){
+
+            for (int i=1; i<= columnCount; i++){
+                System.out.print(rsmd.getColumnName(i)+" - "+ rs.getString(i)+ " ");
+            }
+            System.out.println();
+        }
+        rs.close();
+        stmnt.close();
+        conn.close();
+         }
 }
