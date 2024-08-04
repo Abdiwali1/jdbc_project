@@ -1,4 +1,4 @@
-package com.cydeo.jdbctests.utility;
+package com.cydeo.jdbc.utility;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package com.cydeo.jdbctests.day2;
+package com.cydeo.jdbc.day2;
 
-import com.cydeo.jdbctests.utility.DB_Util;
+import com.cydeo.jdbc.utility.DB_Util;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
